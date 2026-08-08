@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <main class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1>Weather Hub<span class="dot">.</span></h1>
+      <p class="subtitle">Real-time weather tracking & forecasts</p>
+    </header>
+
+    <!-- Search Form -->
+    <form id="searchForm" class="search-box">
+      <input 
+        type="text" 
+        id="cityInput" 
+        placeholder="Enter city name (e.g. Hyderabad, London)" 
+        required 
+        autocomplete="off"
+      />
+      <button type="submit" class="btn-search">Search</button>
+    </form>
+
+    <!-- Quick Select Chips -->
+    <div class="quick-cities">
+      <span class="chip-label">Quick:</span>
+      <button class="city-chip" data-city="Hyderabad">Hyderabad</button>
+      <button class="city-chip" data-city="Bengaluru">Bengaluru</button>
+      <button class="city-chip" data-city="Delhi">Delhi</button>
+      <button class="city-chip" data-city="London">London</button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-state" style="display: none;">
+      <div class="spinner"></div>
+      <p>Fetching weather metrics...</p>
+    </div>
+
+    <!-- Error Banner -->
+    <div id="errorBanner" class="error-banner" style="display: none;">
+      City not found. Please check spelling and try again.
+    </div>
+
+    <!-- Main Weather Display -->
+    <div id="weatherContent" class="weather-content">
+      <div class="main-card">
+        <div class="card-header">
+          <div>
+            <h2 id="cityName">Hyderabad</h2>
+            <p id="weatherCondition" class="condition-text">Clear Sky</p>
+          </div>
+          <span id="weatherEmoji" class="weather-emoji">☀️</span>
+        </div>
+
+        <div class="temp-wrapper">
+          <h1 id="tempDisplay">31<span>°C</span></h1>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <span class="m-label">Wind Speed</span>
+            <span id="windSpeed" class="m-val">12 km/h</span>
+          </div>
+          <div class="metric-item">
+            <span class="m-label">Humidity</span>
+            <span id="humidity" class="m-val">65%</span>
+          </div>
+          <div class="metric-item">
+            <span class="m-label">Apparent Temp</span>
+            <span id="feelsLike" class="m-val">34°C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
